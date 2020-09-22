@@ -1,0 +1,12 @@
+<!--pages/home/home.wxml-->
+<!-- 展示轮播图 -->
+<swiper list="{{banners}}"/>
+<!-- 推荐数据展示 -->
+<recommend recommends="{{recommends}}" bind:imageLoad="imageLoad"/>
+<!-- 本周流行 -->
+<popular/>
+<tab-control id="tab-control" titles="{{titles}}" bind:tabclick= "TabClick" class="{{isFixed?'fixed':''}}"/>
+<tab-control titles="{{titles}}" wx:if="{{isFixed}}"/>
+<!-- 展示商品数据 -->
+<goods goods="{{goods[currentType].list}}" wx:if="isFixed"/>
+<back-top wx:if="{{showBackTop}}"/>
